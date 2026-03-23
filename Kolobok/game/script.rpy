@@ -56,6 +56,9 @@ define sound.fire = "audio/fire.ogg"  # Пожар
 define sound.typewriter = "audio/typewriter.ogg"  # Печатная машинка
 define sound.likhoe = "audio/likhoe.ogg" # Эмбиент
 
+# Определение видео
+image akt1 = Movie(channel="movie", play="video/akt1.webm")
+
 
 # Трансформации
 transform blur_in:
@@ -75,30 +78,21 @@ transform lisa_appear:
     xoffset 500
     linear 1.0 xoffset 0
 
+
 # Обязательная метка start - начало игры
 label start:
-    # Сначала показываем картинку АКТ с анимацией
+
     scene black
-    show akt1:
-        xalign 0.5 yalign 0.5
-        alpha 0.0
-        linear 1.0 alpha 1.0  # 1 секунда на появление
-    
-    play music akt loop volume 1
-    
-    # Ждем 4 секунды (картинка полностью видна)
-    pause 4.0
-    
-    # Плавно исчезаем за 1 секунду
-    show akt1:
-        linear 1.0 alpha 0.0
-    
-    # Ждем завершения исчезновения
-    pause 1.0
-    
-    # Переключаемся дальше
-    hide akt1
+
+    play movie "video/akt1.webm"
+
+    play music "akt.ogg" loop volume 1.0
+
+    pause 6.0
+
+    stop movie
     stop music
+
 
 label prolog: # ПРОЛОГ
 
