@@ -35,7 +35,10 @@ define novel = Character(None,
 # Определение изображений
 image saray_dark = "images/location/saray_dark.jpg"
 image room_day = "images/location/room_day.jpg"
-
+image cattrain = "images/cattrain.jpg"
+image train = "images/train.jpg"
+image lihoe = "images/location/lihoe.jpg"
+image intrain = "images/intrain.jpg"
 
 image kot_based = "images/person/kot_based.png"
 image kot_thinks = "images/person/kot_thinks.png"
@@ -52,6 +55,8 @@ image bull_based = "images/person/bull_based.png"
 
 # Определение аудио
 define audio.shum = "audio/shum_dozhdya.ogg"  # Шум дождя
+define audio.rainandtrain = "audio/rainandtrain.mp3"  # Шум поезда
+define audio.stoptrain = "audio/stoptrain.ogg"  # Поезд все
 define sound.fire = "audio/fire.ogg"  # Пожар
 define sound.typewriter = "audio/typewriter.ogg"  # Печатная машинка
 define sound.likhoe = "audio/likhoe.ogg" # Эмбиент
@@ -82,32 +87,36 @@ transform lisa_appear:
 # Обязательная метка start - начало игры
 label start:
 
-    scene black
-
-    play movie "video/akt1.webm"
-
-    play music "akt.ogg" loop volume 1.0
-
-    pause 6.0
-
-    stop movie
-    stop music
-
-
 label prolog: # ПРОЛОГ
 
-    # Запускаем шум дождя
-    play music shum loop volume 0.7 
+    # Запускаем дождь и поезд
+    play music rainandtrain loop volume 0.7 
+    scene black
+    pause 3.0
+    show train:
+        blur 20
+        alpha 0.0
+        linear 2.0 alpha 1.0 blur 10
+        linear 2.0 blur 0
 
-    # Трек для атмосферы
+    pause 4.0
+    show train:
+        linear 5.0 alpha 0.0
+    pause 2.0
+    hide train
 
-    play sound likhoe loop volume 0.03
-    
-    "ПРОЛОГ"
+    show text "ПРОЛОГ" at truecenter with dissolve
+    pause 2.0
+    hide text with dissolve
 
-    # Общий вид на деревню с котом, который стоит спиной к зрителю
-    
     "Возвращаться было ошибкой."
+
+    # Появление кота в поезде
+    show cattrain:
+        blur 20
+        alpha 0.0
+        linear 0.5 alpha 1.0 blur 10
+        linear 0.5 blur 0
 
     "И всё же я не мог проигнорировать письмо. С Колобком прошло всё моё детство — он был моим первым другом и сообщником в проказах."
 
@@ -115,24 +124,45 @@ label prolog: # ПРОЛОГ
 
     "Иронично, но именно из-за него я и вернулся."
 
+    # Появление вагона
+    show intrain:
+        blur 20
+        alpha 0.0
+        linear 2.0 alpha 1.0 blur 10
+        linear 2.0 blur 0
+
     "Он никогда не пропадал так надолго. Представляю, в каком состоянии старики — они в нём души не чаяли."
 
     # Выбор игрока
-    # Первое появление Кота, кдиалог с Голосом
+    # Первое появление Кота, диалог с Голосом
+    show kot_based at kot_appear:
+        xalign 0.0 yalign 1.0
+
     menu:
         "Колобок был им как сын":
-            show kot_based at left with dissolve
-            kb "Да, ты прав, как же они оберегали его, как переживали, если он не возвращался затемно. Наверное, боялись, что его обидят. Зря."
-        
+                kb "Да, ты прав, как же они оберегали его, как переживали, если он не возвращался затемно. Наверное, боялись, что его обидят. Зря."
+            
         "Колобок помогал им забыть все горести и печали":
-            show kot_based at left with dissolve
-            kb "Верно подметил. И ведь не только им. Он пришел, когда у меня случился тот кризис. Был рядом."
+                kb "Верно подметил. И ведь не только им. Он пришел, когда у меня случился тот кризис. Был рядом."
 
-    "Колобка любили."
+        "Колобка любили."
 
-    "Никого не смущало, что он другой. Стоило ему появиться и становилось легче."
+        "Никого не смущало, что он другой. Стоило ему появиться и становилось легче."
+    hide kot_based
+    hide cattrain
+    stop music
+    play music stoptrain
+    pause 9.0
+    play music audio.shum loop volume 0.7 
 
     "Ума не приложу, кто мог желать ему зла. Зачем похитили? Вернут ли живым?"
+
+    show lihoe:
+        blur 20
+        alpha 0.0
+        linear 2.0 alpha 1.0 blur 10
+        linear 2.0 blur 0
+
 
     "Без Колобка и его песенок жизнь становилась унылой как эта чёртова погода."
 
@@ -144,11 +174,7 @@ label prolog: # ПРОЛОГ
 
     "Там точно ещё кто-то был."
 
-    # Кот исчезает
-    hide kot_based with dissolve
-
     # Текст романа
-
     novel "«Тень ускользала, подхваченная течением, всё дальше и дальше от его сознания. Звонкий смех возник в пустой голове будто случайно пойманный на радиоволну сигнал. Он прорывался сквозь шум воды, сквозь многолетние помехи, из забвения – к нему»."
     "Я убрал блокнот, по давней привычке вцепился зубами в кончик карандаша и замер в ожидании — нет, в надежде, что вот-вот вспомню."
 
@@ -157,8 +183,13 @@ label prolog: # ПРОЛОГ
     "И в последующие дни чувство только нарастало."
 
     "Стояла всё та же дрянная погода, ни следа Колобка, и только роман, родившийся из строчек на покоробленных от сырости страницах блокнота, приносил радость."
-    
+
+    scene black
+
 label glava01: # ГЛАВА 1 САРАЙ
+    show text "ГЛАВА 1\nСАРАЙ" at truecenter with dissolve
+    pause 2.0
+    hide text with dissolve
     
     # Начальная картинка - сарай из темноты
     scene black
@@ -170,7 +201,6 @@ label glava01: # ГЛАВА 1 САРАЙ
         linear 2.0 alpha 1.0 blur 10
         linear 2.0 blur 0
 
-    "ГЛАВА ПЕРВАЯ"
     "Сваи в черепе."
     "Это первое, что пришло на ум, когда я очнулся."
     "Вода была сверху."
