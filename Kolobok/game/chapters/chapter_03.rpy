@@ -1,9 +1,11 @@
 
-# ГЛАВА 3
+# ГЛАВА 3 ФРОСЯ
 
-label chapter_03: # ГЛАВА 3 ФРОСЯ
+label chapter_03: 
 
-    "Глава [chapter_number]: Фрося" # Для внутреннего пользования, потом можно будет удалить
+    show text "ГЛАВА 3\nФРОСЯ" at truecenter with dissolve
+    pause 2.0
+    hide text with dissolve
 
     "Мы почти дошли, когда Гусь мягко остановил меня."
 
@@ -116,4 +118,4 @@ label chapter_03: # ГЛАВА 3 ФРОСЯ
             sf "Выспись и найди её, пусть вернет нам его."
             sf "Аркаша, пойдем со мной, я тебе хоть дам рубаху сухую. И прости за тряпку."
 
-    jump chapter_choice
+jump chapter_04_05_choice    
