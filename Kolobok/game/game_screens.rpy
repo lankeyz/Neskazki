@@ -117,3 +117,59 @@ screen flashlight_mode():
         action Return("found_kolobok") 
 
     timer 0.02 repeat True action renpy.restart_interaction
+
+# МЕНЮ ВЫБОРА ГЛАВы
+
+screen chapter_selection():
+    tag menu
+    add "#1a1a1a" 
+
+    vbox:
+        align (0.5, 0.4)
+        spacing 40
+
+        text "ВЫБОР ГЛАВЫ" xalign 0.5 size 60 color "#fff" 
+
+        # Основной контейнер для двух колонок
+        hbox:
+            align (0.5, 0.5)
+            spacing 50 # Расстояние между левым и правым столбиком
+
+            # ЛЕВАЯ КОЛОНКА
+            vbox:
+                spacing 20 # Расстояние между кнопками по вертикали
+                textbutton "Пролог" action Jump("chapter_prolog") style "ch_button"
+                textbutton "Глава 1: ВСТРЕЧА" action Jump("chapter_01") style "ch_button"
+                textbutton "Глава 2: ПОЖАР" action Jump("chapter_02") style "ch_button"
+                textbutton "Глава 3: ФРОСЯ" action Jump("chapter_03") style "ch_button"
+                textbutton "Глава 4-5" action Jump("chapter_04_05_choice") style "ch_button"
+                textbutton "Глава 6" action Jump("chapter_06") style "ch_button"
+
+            # ПРАВАЯ КОЛОНКА
+            vbox:
+                spacing 20
+                textbutton "Глава 7" action Jump("chapter_07") style "ch_button"
+                textbutton "Глава 9" action Jump("chapter_09") style "ch_button"
+                textbutton "Глава 10" action Jump("chapter_10") style "ch_button"
+                textbutton "Глава Ambar 1" action Jump("chapter_ambar_first") style "ch_button"
+                textbutton "Глава Ambar 2" action Jump("chapter_ambar_second") style "ch_button"
+                textbutton "Редакция" action Jump("chapter_editorial_office") style "ch_button"
+
+# Стили оставляем те же, они отлично работают
+style ch_button:
+    xsize 600           
+    ysize 80            
+    background Solid("#333") 
+    hover_background Solid("#555") 
+    padding (10, 10)
+    align (0.5, 0.5)
+
+style ch_button_text:
+    idle_color "#ccc"   
+    hover_color "#fff"  
+    size 30             
+    xalign 0.5          
+    yalign 0.5
+
+
+

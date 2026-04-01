@@ -1,50 +1,11 @@
 
-# Обязательная метка start - начало игры
 label start:
-
-    # Быстрое тестирование
-    menu:
-        "Выберите сцену для тестирования:"
-
-        "Начать с начала":
-            jump real_start
-        
-        "Пролог":
-            jump prolog
-        
-        "Глава 1: ВСТРЕЧА":
-            jump chapter_01
-        
-        "Глава 2: ПОЖАР":
-            jump chapter_02
-        
-        "Глава 3: ФРОСЯ":
-            jump chapter_03
-
-        "Глава 4-5:":
-            jump chapter_04_05
-        
-        "Глава 6: ":
-            jump chapter_06
-        
-        "Глава 7:":
-            jump chapter_07
-
-        "Глава 9:":
-            jump chapter_09
-        
-        "Глава 10: ":
-            jump chapter_10
-        
-        "Глава ambar:":
-            jump chapter_ambar
-           
-        
-
+    # Останавливаем музыку главного меню с плавным затуханием в 1.0 секунду
+    stop music fadeout 1.0
+    call screen chapter_selection
     
-
 label chapter_prolog:
-
+    
     # Запускаем дождь и поезд
     play music rainandtrain loop volume 0.7 
     scene black
