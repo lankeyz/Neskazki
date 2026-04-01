@@ -21,13 +21,15 @@ define ga = Character("Гусь Аркадий", color="#ffa600")
 define sf = Character("Свинья Фрося", color="#6a19ac")
 
 
-# Определение изображений
+# Определение изображений локации
 image saray_dark = "images/location/saray_dark.jpg"
 image room_day = "images/location/room_day.jpg"
 image cattrain = "images/cattrain.jpg"
 image train = "images/train.jpg"
 image lihoe = "images/location/lihoe.jpg"
 image intrain = "images/intrain.jpg"
+
+# Определение изображений персы
 
 image kot_based = "images/person/kot_based.png"
 image kot_thinks = "images/person/kot_thinks.png"
@@ -41,12 +43,16 @@ image lisa_based_umb = "images/person/lisa_based_umb.png"
 
 image bull_based = "images/person/bull_based.png"
 
+image goose_based = "images/person/goose_based.png"
+
+
 # Определение аудио
 define audio.shum = "audio/shum_dozhdya.ogg"  # Шум дождя
 define audio.rainandtrain = "audio/rainandtrain.mp3"  # Шум поезда
 define audio.stoptrain = "audio/stoptrain.ogg"  # Поезд все
-define sound.fire = "audio/fire.ogg"  # Пожар
-define sound.likhoe = "audio/likhoe.ogg" # Эмбиент
+define audio.fire = "audio/fire.ogg"  # Пожар
+define audio.fire2 = "audio/fire2.mp3"  # Пожар и голоса
+define audio.footsteps = "audio/footsteps.mp3"  # Шаги в траве
 
 # Определение видео
 image akt1 = Movie(channel="movie", play="video/akt1.webm")
