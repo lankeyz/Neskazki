@@ -2,7 +2,7 @@
 # ГЛАВА 1 ВСТРЕЧА
 
 label chapter_01:
-    
+    play music audio.shum loop volume 0.7 
     show text "ГЛАВА 1\nВСТРЕЧА" at truecenter with dissolve
     pause 2.0
     hide text with dissolve
@@ -81,7 +81,11 @@ label chapter_01:
     "Она сидела на поваленном дереве с раскрытым зонтиком."
     "Не знал никого, кто мог бы, находясь в окружении жижеобразных луж и бурьяна, вдыхая к тому же гнилостную вонь с болота, оставаться столь же невозмутимым и изящным."
     "Она так старательно не замечала, во что превратилась моя одежда после падения, что я, сам того не желая, произнёс:"
-
+    
+    # Замена спрайта кота
+    hide kot_headache
+    show kot_based:
+        xalign 0.0 yalign 1.0
     kb "Я упал."
 
     "Прозвучало, разумеется, жалко."
@@ -106,7 +110,7 @@ label chapter_01:
     "У меня не было ничего, чем пригрозить ей, и она это прекрасно знала."
 
     # Замена спрайта кота
-    hide kot_headache
+    hide kot_based
     show kot_thinks:
         xalign 0.0 yalign 1.0
 
@@ -181,27 +185,50 @@ label chapter_01:
     
     # Конец выбора
     
-    
     "Я открыл рот, но не успел ничего сказать."
-
     # Вставить звук грома
+    stop sound
+    stop music
+    play sound grom fadein 1.0 volume 1.0
 
     # Нарастающий звук пожара 
-    play sound fire fadein 14.0 volume 0.2 loop
+    play sound fire fadein 35.0 volume 0.3 loop
+    show saray_dark at heart_jump_purple
 
     "Вспышка бело-фиолетового света озарила горизонт, на той стороне раздался оглушительный треск, и следом на всех нас с непроглядного неба обрушился грохот."
     
     "Мы одновременно обернулись в сторону Деревни."
+
+    # Замена фона
+    hide saray_dark
+    show lihoe_fire
+
     "Над крышами, раскрашивая мокрые сумерки, метался столб пламени."
     "Мой дом горел."
-
+    
+    show kot_scared :
+        xalign 0.0 yalign 1.0
+    
     kb "Да твою ж!"
 
     "Я сорвался с места и бросился туда."
+
+    hide lisa_based_umb
+    hide lihoe_fire
+    show bridge_lisa
+    hide kot_scared
+
     "Лишь на другом берегу я обернулся, чтобы проверить не отстала ли Лиза."
     "Она остановилась на мосту, сжимая зонтик и не двигалась с места."
 
+    show lisa_based_umb:
+        xalign 1.0 yalign 1.0
+
     ll "Спасай рукопись, обо мне не беспокойся."
+
+    show kot_scared :
+        xalign 0.0 yalign 1.0
+
 
     kb "Но здесь опасно оставаться ночью!"
 
