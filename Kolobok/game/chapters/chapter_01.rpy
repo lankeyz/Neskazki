@@ -2,7 +2,7 @@
 # ГЛАВА 1 ВСТРЕЧА
 
 label chapter_01:
-    play music audio.shum loop volume 0.7 
+    play weather shum_dozhdya
     show text "ГЛАВА 1\nВСТРЕЧА" at truecenter with dissolve
     pause 2.0
     hide text with dissolve
@@ -25,8 +25,6 @@ label chapter_01:
     "Боль, казалось, была повсюду. Но особенно она чувствовалась в голове. Словно забивали сваи в череп."
     "Хотя нет, слишком массивно, слишком монотонно."
 
-    stop sound fadeout 15.0
-
     # Выбор игрока КИНЖАЛ или НОЖ
 
     menu:
@@ -37,8 +35,7 @@ label chapter_01:
         "Будто воткнули нож?":
             $ player_weapon = "knife"
             "Да нет же, что за пошлая бытовуха?"
-    # Конец выбора        
-
+  
     "Эта боль была острее, тоньше…"
     "Голос молчал, видимо, придётся искать самому."
     "Хм. Может, спица? Да, так лучше."
@@ -186,17 +183,24 @@ label chapter_01:
     # Конец выбора
     
     "Я открыл рот, но не успел ничего сказать."
-    # Вставить звук грома
-    stop sound
-    stop music
-    play sound grom fadein 1.0 volume 1.0
-
-    # Нарастающий звук пожара 
-    play sound fire fadein 35.0 volume 0.3 loop
-    show saray_dark at heart_jump_purple
-
-    "Вспышка бело-фиолетового света озарила горизонт, на той стороне раздался оглушительный треск, и следом на всех нас с непроглядного неба обрушился грохот."
     
+
+    # Показываем вспышку поверх всего экрана
+    show layer master at thunder_flash_fx
+    #show saray_dark at heart_jump_purple
+
+    "Вспышка бело-фиолетового света озарила горизонт."
+   
+    
+    play ambience a_fire_main fadein 5.0 volume 0.3
+
+    "На той стороне раздался оглушительный треск, и следом на всех нас с непроглядного неба обрушился грохот."
+
+    play fx s_grom volume 1.0
+    window hide
+    pause 5.0
+    window show
+
     "Мы одновременно обернулись в сторону Деревни."
 
     # Замена фона

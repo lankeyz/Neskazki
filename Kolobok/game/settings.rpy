@@ -6,7 +6,20 @@ init python:
 
 init python:
     # Переменная, чтобы звук и реплика сработали только ОДИН раз
-    event_triggered = False    
+    event_triggered = False
+    
+init python:
+    # Канал для погоды (дождь, ветер). Всегда зациклен (loop=True)
+    renpy.music.register_channel("weather", mixer="sfx", loop=True, stop_on_mute=True)
+    
+    # Канал для окружения (пожар, поезд, шум толпы). Тоже зациклен.
+    renpy.music.register_channel("ambience", mixer="sfx", loop=True, stop_on_mute=True)
+    
+    # Канал для разовых звуков (шаги, хрип, гром). НЕ зациклен (loop=False)
+    renpy.music.register_channel("fx", mixer="sfx", loop=False)
+
+    # Канал 'music' (стандартный) оставляем только для музыки (OST)
+    renpy.music.register_channel("ost", mixer="music", loop=True, stop_on_mute=True)       
     
 # Основной шрифт
 define gui.text_font = "fonts/georgia.ttf"
@@ -59,17 +72,30 @@ image goose_back = "images/person/goose_back.png"
 
 
 # Определение аудио
-define audio.shum = "audio/shum_dozhdya.ogg"  # Шум дождя
-define audio.rainandtrain = "audio/rainandtrain.mp3"  # Шум поезда
-define audio.stoptrain = "audio/stoptrain.ogg"  # Поезд все
-define audio.fire = "audio/fire.ogg"  # Пожар
-define audio.fire2 = "audio/fire2.mp3"  # Пожар и голоса
-define audio.footsteps = "audio/footsteps.mp3"  # Шаги в траве
-define audio.grom = "audio/grom.ogg" # Гром
+# --- ПОГОДА (weather) ---
+define audio.w_rain = "audio/shum_dozhdya.ogg" #дождь
+define audio.w.raintrain = "audio/rainandtrain.mp3" # шум поезда, дождь
+
+# --- ОКРУЖЕНИЕ (ambience) ---
+define audio.a_fire_voices = "audio/fire2.mp3"  # Пожар с голосами
+define audio.a_fire_main = "audio/fire.ogg"    # Просто пожар
+
+# --- ЭФФЕКТЫ (fx) ---
+define audio.s_grom = "audio/grom.ogg" # гром
+define audio.s_steps = "audio/footsteps.mp3" #шаги в траве
+define audio.s_wheeze = "audio/wheeze.ogg" # хрип
+define audio.s_train_stop = "audio/stoptrain.ogg"# поезд останавливается
+
+# --- МУЗЫКА (OST)
+define audio.o_likhoe = "audio/likhoe.mp3"
+define audio.o_lost_home = "audio/lost_home.mp3"
+
 
 # Определение видео
 image akt1 = Movie(channel="movie", play="video/akt1.webm")
 
+# медленное затемнение
+define slow_fade = Fade(2.0, 1.0, 2.0)
 
 # Трансформации
 transform blur_in:
@@ -95,11 +121,24 @@ transform heart_attack: # Эффект испуга
     linear 0.02 zoom 1.05 xoffset 5
     linear 0.02 zoom 1.0 xoffset 0
 
-transform heart_jump_purple:# Фиолетовая молния и спуг
+#transform heart_jump_purple:# Фиолетовая молния и спуг
     linear 0.05 zoom 2.08
     matrixcolor TintMatrix("#ba53ff")  # Фиолетовый оттенок
     linear 0.1 zoom 1.0
     matrixcolor TintMatrix("#ffffff")  # Возврат к норме
 
-# Настройка фонарика
-
+# Определение резкой ослепляющей вспышки
+transform thunder_flash_fx:
+    # 1. МГНОВЕННАЯ ВСПЫШКА
+    # Устанавливаем яркость сразу (без linear), чтобы бахнуло мгновенно
+    matrixcolor BrightnessMatrix(0.9) 
+    
+    # 2. ЗАДЕРЖКА ОСЛЕПЛЕНИЯ
+    # Вот эта строка держит экран белым. 
+    # 0.5 — это полсекунды. Можно поставить 1.0 для очень долгой вспышки.
+    pause 0.5 
+    
+    # 3. ПЛАВНЫЙ ВЫХОД
+    # Теперь яркость возвращается к 0.0
+    # Сделаем чуть дольше (например, 0.5), чтобы глаза "отходили" от света
+    linear 0.5 matrixcolor BrightnessMatrix(0.0)
