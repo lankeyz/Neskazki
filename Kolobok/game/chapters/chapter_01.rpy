@@ -11,12 +11,8 @@ label chapter_01:
     scene black
     
     # Появление сарая с размытием, которое становится четким
-    show saray_dark:
-        blur 20
-        alpha 0.0
-        linear 2.0 alpha 1.0 blur 10
-        linear 2.0 blur 0
-
+    
+    show saray_dark at wake_effect
     
     "Сваи в черепе."
     "Это первое, что пришло на ум, когда я очнулся."
@@ -81,7 +77,7 @@ label chapter_01:
     
     # Замена спрайта кота
     hide kot_headache
-    show kot_based:
+    show kot_thinks:
         xalign 0.0 yalign 1.0
     kb "Я упал."
 
@@ -107,8 +103,8 @@ label chapter_01:
     "У меня не было ничего, чем пригрозить ей, и она это прекрасно знала."
 
     # Замена спрайта кота
-    hide kot_based
-    show kot_thinks:
+    hide kot_thinks
+    show kot_based:
         xalign 0.0 yalign 1.0
 
 
@@ -183,24 +179,41 @@ label chapter_01:
     # Конец выбора
     
     "Я открыл рот, но не успел ничего сказать."
-    
+
+    play fx s_grom volume 1.0
 
     # Показываем вспышку поверх всего экрана
     show layer master at thunder_flash_fx
     #show saray_dark at heart_jump_purple
 
-    "Вспышка бело-фиолетового света озарила горизонт."
-   
+    # Замена спрайта кота
+    hide kot_based
+    show kot_confusion0 :
+        xalign 0.0 yalign 1.0
     
-    play ambience a_fire_main fadein 5.0 volume 0.3
-
+    # Замена спрайта лисы
+    hide lisa_based_umb
+    show lisa_confusion_umb0 :
+        xalign 1.0 yalign 1.0
+    
+    "Вспышка бело-фиолетового света озарила горизонт."
     "На той стороне раздался оглушительный треск, и следом на всех нас с непроглядного неба обрушился грохот."
-
-    play fx s_grom volume 1.0
+    play fx s_tresk volume 1.0
+    play ambience a_fire_main fadein 5.0 volume 0.3
     window hide
     pause 5.0
     window show
 
+    # Замена спрайта кота
+    hide kot_confusion0
+    show kot_confusion :
+        xalign 0.0 yalign 1.0
+    
+    # Замена спрайта лисы
+    hide lisa_confusion_umb0
+    show lisa_confusion_umb :
+        xalign 1.0 yalign 1.0
+    
     "Мы одновременно обернулись в сторону Деревни."
 
     # Замена фона
@@ -214,23 +227,14 @@ label chapter_01:
         xalign 0.0 yalign 1.0
     
     kb "Да твою ж!"
+    play fx s_steps volume 1.0
 
     "Я сорвался с места и бросился туда."
-
-    hide lisa_based_umb
-    hide lihoe_fire
-    show bridge_lisa
-    hide kot_scared
-
     "Лишь на другом берегу я обернулся, чтобы проверить не отстала ли Лиза."
+    show bridge
     "Она остановилась на мосту, сжимая зонтик и не двигалась с места."
-
-    show lisa_based_umb:
-        xalign 1.0 yalign 1.0
-
     ll "Спасай рукопись, обо мне не беспокойся."
-
-    show kot_scared :
+    show kot_back :
         xalign 0.0 yalign 1.0
 
 
@@ -242,7 +246,7 @@ label chapter_01:
     scene black 
 
     # 2. Останавливаем всю музыку (канал music)
-    stop music fadeout 1.0
+    stop music
 
     # 3. Останавливаем все звуки (канал sound)
     stop sound

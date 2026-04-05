@@ -55,15 +55,19 @@ image room_day = "images/location/room_day.jpg" # Номер кота
 
 image kot_based = "images/person/kot/kot_based.png" # Кот нейтральный
 image kot_thinks = "images/person/kot/kot_thinks.png" # Кот задумчивый
-image kot_headache = "images/person/kot/kot_headache.png" # Кот с головной болью
+image kot_headache = "images/person/kot/kot_headache.png" # Кот в смятении
 image kot_blocknot = "images/person/kot/kot_blocknot.png" # Кот пишет в блокнот
 image kot_scared = "images/person/kot/kot_scared.png" # Кот напуган
+image kot_confusion = "images/person/kot/kot_confusion.png" # Кот в шоке
+image kot_confusion0 = "images/person/kot/kot_confusion0.png" # Кот в шоке 2
+image kot_back = "images/person/kot/kot_back.png" # Спина кота
 
 
-image lisa_based = "images/person/lisa_based.png"
-image lisa_sly_umb = "images/person/lisa_sly_umb.png"
-image lisa_based_umb = "images/person/lisa_based_umb.png"
-
+image lisa_based = "images/person/lisa_based.png" # Лиса нейтральна
+image lisa_sly_umb = "images/person/lisa_sly_umb.png" # Лиса хитрая с зонтом 
+image lisa_based_umb = "images/person/lisa_based_umb.png" # Лиса нейтральна с зонтом 
+image lisa_confusion_umb = "images/person/lisa_confusion_umb.png" # Лиса удивленная с зонтом 
+image lisa_confusion_umb0 = "images/person/lisa_confusion_umb0.png" # Лиса удивленная с зонтом 2
 
 image bull_based = "images/person/bull_based.png"
 
@@ -79,12 +83,18 @@ define audio.w.raintrain = "audio/rainandtrain.mp3" # шум поезда, до�
 # --- ОКРУЖЕНИЕ (ambience) ---
 define audio.a_fire_voices = "audio/fire2.mp3"  # Пожар с голосами
 define audio.a_fire_main = "audio/fire.ogg"    # Просто пожар
+define audio.a_magicpole = "audio/magicpole.mp3"    # Телек
 
 # --- ЭФФЕКТЫ (fx) ---
 define audio.s_grom = "audio/grom.ogg" # гром
-define audio.s_steps = "audio/footsteps.mp3" #шаги в траве
+define audio.s_steps = "audio/footsteps.mp3" # бег в мокрой траве
+define audio.s_steps2 = "audio/footsteps2.mp3" # шаг в мокрой траве
 define audio.s_wheeze = "audio/wheeze.ogg" # хрип
-define audio.s_train_stop = "audio/stoptrain.ogg"# поезд останавливается
+define audio.s_train_stop = "audio/stoptrain.ogg" # поезд останавливается
+define audio.s_tresk = "audio/tresk.mp3" # треск дерева
+define audio.s_heartbeat = "audio/heartbeat.ogg" # удар сердца
+define audio.s_opendoor = "audio/opendoor.mp3" #открывается дверь
+
 
 # --- МУЗЫКА (OST)
 define audio.o_likhoe = "audio/likhoe.mp3"
@@ -121,11 +131,11 @@ transform heart_attack: # Эффект испуга
     linear 0.02 zoom 1.05 xoffset 5
     linear 0.02 zoom 1.0 xoffset 0
 
-#transform heart_jump_purple:# Фиолетовая молния и спуг
-    linear 0.05 zoom 2.08
-    matrixcolor TintMatrix("#ba53ff")  # Фиолетовый оттенок
+transform heartbeat: # Удар сердца
+    linear 0.1 zoom 1.02
     linear 0.1 zoom 1.0
-    matrixcolor TintMatrix("#ffffff")  # Возврат к норме
+    linear 0.1 zoom 1.01
+    linear 0.1 zoom 1.0
 
 # Определение резкой ослепляющей вспышки
 transform thunder_flash_fx:
@@ -142,3 +152,29 @@ transform thunder_flash_fx:
     # Теперь яркость возвращается к 0.0
     # Сделаем чуть дольше (например, 0.5), чтобы глаза "отходили" от света
     linear 0.5 matrixcolor BrightnessMatrix(0.0)
+
+transform wake_effect:
+    alpha 0.0
+    blur 20
+    linear 1.0 alpha 1.0
+    linear 1.5 blur 0
+
+transform walking_shake: # Ходьба
+    anchor (0.5, 0.5)
+    pos (0.5, 0.5)
+
+    easeout 0.2 yoffset -8 zoom 1.1
+    easein 0.2 yoffset 0 zoom 1.1
+
+    easeout 0.2 yoffset -8 zoom 1.2
+    easein 0.2 yoffset 0 zoom 1.2
+
+    easeout 0.2 yoffset -7 zoom 1.3
+    easein 0.2 yoffset 0 zoom 1.3
+
+    easeout 0.2 yoffset -6 zoom 1.4
+    easein 0.2 yoffset 0 zoom 1.4
+
+transform swipe_right: # Разворот
+    zoom 1.1
+    linear 0.05 zoom 1.0
