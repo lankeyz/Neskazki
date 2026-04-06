@@ -7,7 +7,7 @@ label editorial_office_searching:
     # Показываем экран
     show screen office_hover_screen 
     
-    kb "Мне нужно всё осмотреть."
+    kb "Она была где-то здесь."
 
     # Скрываем окно диалога сразу после этой фразы
     window hide

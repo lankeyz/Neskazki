@@ -32,6 +32,7 @@ define kb = Character("Кот Владимир", color="#85a39a")
 define ll = Character("Лиса Лиза", color="#c4b394")
 define ga = Character("Гусь Аркадий", color="#ffa600")
 define sf = Character("Свинья Фрося", color="#6a19ac")
+define zm = Character("Заяц Митя", color="#5a8abe")
 
 
 # Определение изображений локации
