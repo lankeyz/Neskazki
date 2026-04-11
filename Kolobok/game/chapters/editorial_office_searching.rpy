@@ -2,6 +2,7 @@
 label editorial_office_searching:
 
     scene editorial_office # Ставим фон
+    show office
     window hide # Прячем окно диалога, чтобы оно не мешало кликать
     
     # Показываем экран

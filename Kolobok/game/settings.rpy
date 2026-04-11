@@ -50,6 +50,8 @@ image lihoe_fire = "images/location/lihoe_fire.jpg" # Лихое в огне
 image lihoe_night = "images/location/lihoe_night.jpg"# Лихое ночью
 
 image room_day = "images/location/room_day.jpg" # Номер кота
+image office = "images/location/office.jpg" # Редакция
+
 
 
 # Определение изображений персы
@@ -176,6 +178,12 @@ transform walking_shake: # Ходьба
     easeout 0.2 yoffset -6 zoom 1.4
     easein 0.2 yoffset 0 zoom 1.4
 
-transform swipe_right: # Разворот
-    zoom 1.1
-    linear 0.05 zoom 1.0
+define fast_push = PushMove(0.2, "pushleft")  # Резкая смена кадра
+transform slow_zoom: # ЗУМ
+    zoom 1.0
+    ease 20.0 zoom 1.06
+transform reset_zoom: # Обратный зум
+    anchor (0.5, 0.5)
+    pos (0.5, 0.5)
+    zoom 1.05
+    ease 0.5 zoom 1.0

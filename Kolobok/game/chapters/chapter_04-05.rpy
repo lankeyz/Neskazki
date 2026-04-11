@@ -6,6 +6,7 @@ label chapter_04_05_choice:
     show text "ГЛАВА 4\n[chapter_4_title]" at truecenter with dissolve
     pause 2.0
     hide text with dissolve
+    show street
 
     "На рассвете я вышел из дома и побрёл по деревне."
 
@@ -24,3 +25,9 @@ label chapter_end_of_the_day:
     "Я валился сног. Стоило упасть на кровать и я уснул."
 
     jump chapter_06
+
+    # 1. Убираем все изображения (фоны и спрайты)
+    scene black 
+
+    # 2. Останавливаем всю музыку (канал music)
+    stop ambience fadeout 1.0 
