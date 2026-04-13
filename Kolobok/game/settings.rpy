@@ -64,6 +64,8 @@ image kot_scared = "images/person/kot/kot_scared.png" # Кот напуган
 image kot_confusion = "images/person/kot/kot_confusion.png" # Кот в шоке
 image kot_confusion0 = "images/person/kot/kot_confusion0.png" # Кот в шоке 2
 image kot_back = "images/person/kot/kot_back.png" # Спина кота
+image wow = "images/person/kot/wow.png" # КОТ делай выбор
+
 
 
 image lisa_based = "images/person/lisa_based.png" # Лиса нейтральна
@@ -128,6 +130,10 @@ transform lisa_appear: # Персонаж справа
     xoffset 500
     linear 1.0 xoffset 0
 
+transform center_char: # Персонаж центр
+    xalign 0.5
+    yalign 1.0
+
 transform heart_attack: # Эффект испуга
     linear 0.03 zoom 1.1
     linear 0.02 zoom 1.05 xoffset -5
@@ -179,6 +185,7 @@ transform walking_shake: # Ходьба
     easein 0.2 yoffset 0 zoom 1.4
 
 define fast_push = PushMove(0.2, "pushleft")  # Резкая смена кадра
+
 transform slow_zoom: # ЗУМ
     zoom 1.0
     ease 20.0 zoom 1.06
@@ -187,3 +194,33 @@ transform reset_zoom: # Обратный зум
     pos (0.5, 0.5)
     zoom 1.05
     ease 0.5 zoom 1.0
+
+transform train_night: # Тряска поезда
+    subpixel False
+    anchor (0.5, 0.5)
+    pos (0.5, 0.5)
+
+    parallel:
+        linear 0.14 yoffset -5
+        linear 0.14 yoffset 0
+        linear 0.14 yoffset -5
+        linear 0.28 yoffset 0
+        repeat
+
+    parallel:
+        ease 0.7 xoffset -1
+        ease 0.7 xoffset 1
+        repeat
+
+    parallel:
+        ease 0.8 zoom 1.015
+        ease 0.8 zoom 1.0
+        repeat
+
+
+transform fade_in_overlay: # заемнение экрана
+    alpha 0.0
+    linear 0.3 alpha 0.8
+
+screen dark_overlay():
+    add Solid("#000") at fade_in_overlay

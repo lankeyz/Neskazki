@@ -1618,3 +1618,17 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+screen choice_center(left_text, right_text, left_value, right_value):
+
+    # ЛЕВАЯ кнопка
+    textbutton left_text:
+        xalign 0.25
+        yalign 0.4
+        action Return(left_value)
+
+    # ПРАВАЯ кнопка
+    textbutton right_text:
+        xalign 0.75
+        yalign 0.4
+        action Return(right_value)
