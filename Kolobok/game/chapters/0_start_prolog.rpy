@@ -51,6 +51,8 @@ label chapter_prolog:
     "Никого не волновало, что он другой. Стоило ему появиться и становилось легче." 
 
    
+    hide wow onlayer screens
+    show layer master
     stop weather
     play fx s_train_stop
     pause 9.0
