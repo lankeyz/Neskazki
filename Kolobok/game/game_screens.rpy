@@ -5,9 +5,9 @@ default closet_checked = False
 default trash_checked = False
 default can_check_trash = False # По умолчанию мусорка недоступна
 
-image editorial_office = "images/location/editorial_office.jpg"
-image inside_table = "images/location/inside_table.jpg"
-image inside_closet = "images/location/inside_closet.jpg"      
+image editorial_office = "images/searching/editorial_office/editorial_office.jpg"
+image inside_table = "images/searching/editorial_office/inside_table.jpg"
+image inside_closet = "images/searching/editorial_office/inside_closet.jpg"      
 
 screen office_hover_screen():
     zorder 100 # Выводит на самый верхний слой
@@ -15,26 +15,26 @@ screen office_hover_screen():
     # стол (без изменений)
     imagebutton:
         xpos 0 ypos 0 
-        idle Transform("location/table_glow.png", alpha=0.0) 
-        hover Transform("location/table_glow.png", alpha=1.0) 
-        focus_mask "location/table_glow.png"
+        idle Transform("searching/editorial_office/table_glow.png", alpha=0.0) 
+        hover Transform("searching/editorial_office/table_glow.png", alpha=1.0) 
+        focus_mask "searching/editorial_office/table_glow.png"
         action Jump("go_inside_table")
 
     # шкаф (без изменений)
     imagebutton:
         xpos 0 ypos 0 
-        idle Transform("location/closet_glow.png", alpha=0.0) 
-        hover Transform("location/closet_glow.png", alpha=1.0) 
-        focus_mask "location/closet_glow.png"    
+        idle Transform("searching/editorial_office/closet_glow.png", alpha=0.0) 
+        hover Transform("searching/editorial_office/closet_glow.png", alpha=1.0) 
+        focus_mask "searching/editorial_office/closet_glow.png"    
         action Jump("go_inside_closet")
 
     # МУСОРКА — теперь под условием
     if can_check_trash:
         imagebutton:
             xpos 0 ypos 0 
-            idle Transform("location/trash_glow.png", alpha=0.0) 
-            hover Transform("location/trash_glow.png", alpha=1.0) 
-            focus_mask "location/trash_glow.png"    
+            idle Transform("searching/editorial_office/trash_glow.png", alpha=0.0) 
+            hover Transform("searching/editorial_office/trash_glow.png", alpha=1.0) 
+            focus_mask "searching/editorial_office/trash_glow.png"    
             action Jump("go_to_trash")
 
 
@@ -46,9 +46,9 @@ default bucket_checked = False
 default can_open_secret_door = False # По умолчанию дверь закрыта
 
 # Изображения локаций
-image bg_masterskaya_main = "images/masterskaya/bg_masterskaya_main_close.jpg"
-image bg_masterskaya_open = "images/masterskaya/bg_masterskaya_main_open.jpg"
-image bg_book_plants = "images/masterskaya/book_plants.jpg"
+image bg_masterskaya_main = "images/searching/masterskaya/bg_masterskaya_main_close.jpg"
+image bg_masterskaya_open = "images/searching/masterskaya/bg_masterskaya_main_open.jpg"
+image bg_book_plants = "images/searching/masterskaya/book_plants.jpg"
 
 screen workshop_search_screen():
     zorder 100
@@ -56,36 +56,37 @@ screen workshop_search_screen():
     # Ведро
     imagebutton:
         xpos 0 ypos 0 
-        idle Transform("masterskaya/bucket_glow.png", alpha=0.0) 
-        hover Transform("masterskaya/bucket_glow.png", alpha=1.0) 
-        focus_mask "masterskaya/bucket_glow.png"
+        idle Transform("searching/masterskaya/bucket_glow.png", alpha=0.0) 
+        hover Transform("searching/masterskaya/bucket_glow.png", alpha=1.0) 
+        focus_mask "searching/masterskaya/bucket_glow.png"
         action Jump("check_bucket")
 
     # Ведьмин стол
     imagebutton:
         xpos 0 ypos 0 
-        idle Transform("masterskaya/witch_table_glow.png", alpha=0.0) 
-        hover Transform("masterskaya/witch_table_glow.png", alpha=1.0) 
-        focus_mask "masterskaya/witch_table_glow.png"
+        idle Transform("searching/masterskaya/witch_table_glow.png", alpha=0.0) 
+        hover Transform("searching/masterskaya/witch_table_glow.png", alpha=1.0) 
+        focus_mask "searching/masterskaya/witch_table_glow.png"
         action Jump("witch_table")
 
     # Секретная дверь (активна только после события со столом)
     if can_open_secret_door:
         imagebutton:
             xpos 0 ypos 0 
-            idle Transform("masterskaya/secret_door_glow.png", alpha=0.0) 
-            hover Transform("masterskaya/secret_door_glow.png", alpha=1.0) 
-            focus_mask "masterskaya/secret_door_glow.png"
+            idle Transform("searching/masterskaya/secret_door_glow.png", alpha=0.0) 
+            hover Transform("searching/masterskaya/secret_door_glow.png", alpha=1.0) 
+            focus_mask "searching/masterskaya/secret_door_glow.png"
             action Jump("masterskaya_kolobki")
+
 
 # ФОНАРИК
 
 # 1. ОПРЕДЕЛЯЕМ ИЗОБРАЖЕНИЯ НАПРЯМУЮ
 # Я переименовал переменную в 'kolobok_sprite', чтобы не было конфликта с именем файла
-image bg_masterskaya_light = "images/masterskaya/bg_masterskaya_light.jpg"
-image bg_masterskaya_dark = "images/masterskaya/bg_masterskaya_dark.jpg"
-image flashlight_spot = "images/masterskaya/flashlight.png"
-image kolobok_sprite = "images/masterskaya/kolobok_is_injured.png"
+image bg_masterskaya_light = "images/searching/masterskaya/bg_masterskaya_light.jpg"
+image bg_masterskaya_dark = "images/searching/masterskaya/bg_masterskaya_dark.jpg"
+image flashlight_spot = "images/searching/masterskaya/flashlight.png"
+image kolobok_sprite = "images/searching/masterskaya/kolobok_is_injured.png"
 
 # Создаем композицию
 image bg_lit_full = Fixed(
@@ -112,11 +113,84 @@ screen flashlight_mode():
         align (0.5, 0.5) 
         
         # Указываем ПРЯМОЙ путь к файлу для маски клика
-        focus_mask "images/masterskaya/kolobok_is_injured.png" 
+        focus_mask "images/searching/masterskaya/kolobok_is_injured.png" 
         
         action Return("found_kolobok") 
 
     timer 0.02 repeat True action renpy.restart_interaction
+
+
+
+# ПОИСК АМБАР
+
+# поиск в Амбаре
+default ambar_box_checked = False
+default ambar_hay_checked = False
+default ambar_lamp_checked = False 
+
+# Изображения
+image bg_ambar_dark = "images/searching/ambar/bg_ambar_dark.jpg"
+image bg_ambar_light = "images/searching/ambar/bg_ambar_light.jpg"
+image bg_ambar_light_secret = "images/searching/ambar/bg_ambar_light_secret.jpg"
+
+# ЭКРАН 1: Фонарик в темноте
+screen ambar_flashlight_mode():
+    $ mouse_x, mouse_y = renpy.get_mouse_pos()
+    
+    add "bg_ambar_dark"
+    # Подсвечиваем "светлую" версию через маску фонарика
+    add AlphaMask("bg_ambar_light", Transform("flashlight_spot", pos=(mouse_x, mouse_y), anchor=(0.5, 0.5)))
+
+    # Невидимая кнопка на лампе, чтобы её зажечь
+    imagebutton:
+        idle Solid("#00000000") 
+        xpos 0 ypos 0 
+        focus_mask "images/searching/ambar/lamp_glow.png" 
+        action Return("found_lamp") 
+
+    timer 0.02 repeat True action renpy.restart_interaction
+
+# ЭКРАН 2: Осмотр при свете
+screen ambar_search_screen():
+    zorder 100
+
+    # Ящик
+    imagebutton:
+        xpos 0 ypos 0 
+        idle Transform("images/searching/ambar/box_glow.png", alpha=0.0) 
+        hover Transform("images/searching/ambar/box_glow.png", alpha=1.0) 
+        focus_mask "images/searching/ambar/box_glow.png"
+        action Jump("ambar_check_box")
+
+    # Сено
+    imagebutton:
+        xpos 0 ypos 0 
+        idle Transform("images/searching/ambar/hay_glow.png", alpha=0.0) 
+        hover Transform("images/searching/ambar/hay_glow.png", alpha=1.0) 
+        focus_mask "images/searching/ambar/hay_glow.png"
+        action Jump("ambar_check_hay")
+
+    # Лампа
+    imagebutton:
+        xpos 0 ypos 0 
+        idle Transform("images/searching/ambar/lamp_glow.png", alpha=0.0) 
+        hover Transform("images/searching/ambar/lamp_glow.png", alpha=1.0) 
+        focus_mask "images/searching/ambar/lamp_glow.png"
+        action Jump("ambar_check_lamp")
+
+# ЭКРАН 3: Секретная дверь (Новый)
+screen ambar_secret_screen():
+    zorder 100
+
+    # Секретная дверь подпола
+    imagebutton:
+        xpos 0 ypos 0 
+        idle Transform("secret_door_glow", alpha=0.0) 
+        hover Transform("secret_door_glow", alpha=1.0) 
+        focus_mask "images/searching/ambar/secret_door_glow.png"
+        
+        # Клик вызывает попытку открыть (карандаш сломается)
+        action Jump("try_open_secret_door")        
 
 # МЕНЮ ВЫБОРА ГЛАВы
 
@@ -154,6 +228,7 @@ screen chapter_selection():
                 textbutton "Глава Ambar 1" action Jump("chapter_ambar_first") style "ch_button"
                 textbutton "Глава Ambar 2" action Jump("chapter_ambar_second") style "ch_button"
                 textbutton "Редакция" action Jump("chapter_editorial_office") style "ch_button"
+                textbutton "TEST" action Jump("prolog_test") style "ch_button"
 
 # Стили оставляем те же, они отлично работают
 style ch_button:
