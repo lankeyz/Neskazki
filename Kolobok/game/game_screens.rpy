@@ -18,6 +18,7 @@ screen office_hover_screen():
         idle Transform("searching/editorial_office/table_glow.png", alpha=0.0) 
         hover Transform("searching/editorial_office/table_glow.png", alpha=1.0) 
         focus_mask "searching/editorial_office/table_glow.png"
+        mouse "point" 
         action Jump("go_inside_table")
 
     # шкаф (без изменений)
@@ -25,7 +26,8 @@ screen office_hover_screen():
         xpos 0 ypos 0 
         idle Transform("searching/editorial_office/closet_glow.png", alpha=0.0) 
         hover Transform("searching/editorial_office/closet_glow.png", alpha=1.0) 
-        focus_mask "searching/editorial_office/closet_glow.png"    
+        focus_mask "searching/editorial_office/closet_glow.png"
+        mouse "point"     
         action Jump("go_inside_closet")
 
     # МУСОРКА — теперь под условием
@@ -34,7 +36,8 @@ screen office_hover_screen():
             xpos 0 ypos 0 
             idle Transform("searching/editorial_office/trash_glow.png", alpha=0.0) 
             hover Transform("searching/editorial_office/trash_glow.png", alpha=1.0) 
-            focus_mask "searching/editorial_office/trash_glow.png"    
+            focus_mask "searching/editorial_office/trash_glow.png"
+            mouse "point"     
             action Jump("go_to_trash")
 
 
@@ -59,6 +62,7 @@ screen workshop_search_screen():
         idle Transform("searching/masterskaya/bucket_glow.png", alpha=0.0) 
         hover Transform("searching/masterskaya/bucket_glow.png", alpha=1.0) 
         focus_mask "searching/masterskaya/bucket_glow.png"
+        mouse "point" 
         action Jump("check_bucket")
 
     # Ведьмин стол
@@ -67,6 +71,7 @@ screen workshop_search_screen():
         idle Transform("searching/masterskaya/witch_table_glow.png", alpha=0.0) 
         hover Transform("searching/masterskaya/witch_table_glow.png", alpha=1.0) 
         focus_mask "searching/masterskaya/witch_table_glow.png"
+        mouse "point" 
         action Jump("witch_table")
 
     # Секретная дверь (активна только после события со столом)
@@ -76,6 +81,7 @@ screen workshop_search_screen():
             idle Transform("searching/masterskaya/secret_door_glow.png", alpha=0.0) 
             hover Transform("searching/masterskaya/secret_door_glow.png", alpha=1.0) 
             focus_mask "searching/masterskaya/secret_door_glow.png"
+            mouse "point" 
             action Jump("masterskaya_kolobki")
 
 
@@ -113,7 +119,8 @@ screen flashlight_mode():
         align (0.5, 0.5) 
         
         # Указываем ПРЯМОЙ путь к файлу для маски клика
-        focus_mask "images/searching/masterskaya/kolobok_is_injured.png" 
+        focus_mask "images/searching/masterskaya/kolobok_is_injured.png"
+        mouse "point"  
         
         action Return("found_kolobok") 
 
@@ -145,7 +152,8 @@ screen ambar_flashlight_mode():
     imagebutton:
         idle Solid("#00000000") 
         xpos 0 ypos 0 
-        focus_mask "images/searching/ambar/lamp_glow.png" 
+        focus_mask "images/searching/ambar/lamp_glow.png"
+        mouse "point" 
         action Return("found_lamp") 
 
     timer 0.02 repeat True action renpy.restart_interaction
@@ -160,6 +168,7 @@ screen ambar_search_screen():
         idle Transform("images/searching/ambar/box_glow.png", alpha=0.0) 
         hover Transform("images/searching/ambar/box_glow.png", alpha=1.0) 
         focus_mask "images/searching/ambar/box_glow.png"
+        mouse "point"
         action Jump("ambar_check_box")
 
     # Сено
@@ -168,6 +177,7 @@ screen ambar_search_screen():
         idle Transform("images/searching/ambar/hay_glow.png", alpha=0.0) 
         hover Transform("images/searching/ambar/hay_glow.png", alpha=1.0) 
         focus_mask "images/searching/ambar/hay_glow.png"
+        mouse "point"
         action Jump("ambar_check_hay")
 
     # Лампа
@@ -176,6 +186,7 @@ screen ambar_search_screen():
         idle Transform("images/searching/ambar/lamp_glow.png", alpha=0.0) 
         hover Transform("images/searching/ambar/lamp_glow.png", alpha=1.0) 
         focus_mask "images/searching/ambar/lamp_glow.png"
+        mouse "point"
         action Jump("ambar_check_lamp")
 
 # ЭКРАН 3: Секретная дверь (Новый)
@@ -185,9 +196,10 @@ screen ambar_secret_screen():
     # Секретная дверь подпола
     imagebutton:
         xpos 0 ypos 0 
-        idle Transform("secret_door_glow", alpha=0.0) 
-        hover Transform("secret_door_glow", alpha=1.0) 
-        focus_mask "images/searching/ambar/secret_door_glow.png"
+        idle Transform("cellar_glow", alpha=0.0) 
+        hover Transform("cellar_glow", alpha=1.0) 
+        focus_mask "images/searching/ambar/cellar_glow.png"
+        mouse "point" 
         
         # Клик вызывает попытку открыть (карандаш сломается)
         action Jump("try_open_secret_door")        

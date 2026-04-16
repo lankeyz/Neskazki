@@ -5,6 +5,11 @@ init python:
         return renpy.get_mouse_pos()
 
 init python:
+    config.mouse = {
+        "default": [ ("images/searching/default_cursor.png", 0, 0) ],
+        "point": [ ("images/searching/point_cursor.png", 16, 16) ],
+    }
+init python:
     # Переменная, чтобы звук и реплика сработали только ОДИН раз
     event_triggered = False
     
