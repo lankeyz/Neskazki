@@ -229,3 +229,9 @@ transform fade_in_overlay: # заемнение экрана
 
 screen dark_overlay():
     add Solid("#000") at fade_in_overlay
+
+transform float_text:
+    yoffset 0
+    ease 1.5 yoffset -20
+    ease 1.5 yoffset 0
+    repeat

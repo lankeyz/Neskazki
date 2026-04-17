@@ -94,20 +94,23 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+default choice_active = False
+
 screen say(who, what):
 
-    window:
-        id "window"
+    if not choice_active:
 
-        if who is not None:
+        window:
+            id "window"
 
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
+            if who is not None:
 
-        text what id "what"
+                window:
+                    id "namebox"
+                    style "namebox"
+                    text who id "who"
 
+            text what id "what"
 
     ## Если есть боковое изображение ("голова"), показывает её поверх текста.
     ## По стандарту не показывается на варианте для мобильных устройств — мало
@@ -1619,16 +1622,56 @@ style slider_slider:
     variant "small"
     xsize 900
 
+
 screen choice_center(left_text, right_text, left_value, right_value):
+
+    modal True
+
+    on "show" action SetVariable("choice_active", True)
+    on "hide" action SetVariable("choice_active", False)
 
     # ЛЕВАЯ кнопка
     textbutton left_text:
-        xalign 0.25
-        yalign 0.4
+        xpos 0.20
+        ypos 0.3
+        xanchor 0.5
+
+        xsize 404
+        ysize 333
+
+        text_xmaximum 370
+        text_minwidth 0
+        text_align 0.5
+        text_size 24
+        text_layout "subtitle"
+        text_line_spacing 10
+
+        padding (20, 30)
+
+        background Transform("gui/button/button_choice.png", alpha=0.7)
+        at float_text
         action Return(left_value)
+
 
     # ПРАВАЯ кнопка
     textbutton right_text:
-        xalign 0.75
-        yalign 0.4
-        action Return(right_value)
+        xpos 0.80
+        ypos 0.3
+        xanchor 0.5
+
+        xsize 404
+        ysize 333
+
+        text_xmaximum 370
+        text_minwidth 0
+        text_align 0.5
+        text_size 24
+        text_layout "subtitle"
+        text_line_spacing 5
+
+        padding (20, 30)
+
+        background Transform("gui/button/button_choice.png", alpha=0.7)
+        at float_text
+
+        action Return(right_value)  # ← не забудь, а то опять левая победит 😄
