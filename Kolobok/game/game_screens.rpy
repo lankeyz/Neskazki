@@ -1,4 +1,4 @@
-# Интерактивный экран поиска в Редакции
+# ОСМОТР РЕДАКЦИИ
 # По умолчанию игрок еще ничего не видел
 default table_checked = False
 default closet_checked = False
@@ -41,7 +41,7 @@ screen office_hover_screen():
             action Jump("go_to_trash")
 
 
-# Интерактивный экран поиска в мастерской
+# ОСМОТР МАСТЕРСКОЙ
 
 # Флаги состояния
 default witch_table_checked = False
@@ -128,14 +128,12 @@ screen flashlight_mode():
 
 
 
-# ПОИСК АМБАР
+# ОСМОТР АМБАРА
 
-# поиск в Амбаре
 default ambar_box_checked = False
 default ambar_hay_checked = False
 default ambar_lamp_checked = False 
 
-# Изображения
 image bg_ambar_dark = "images/searching/ambar/bg_ambar_dark.jpg"
 image bg_ambar_light = "images/searching/ambar/bg_ambar_light.jpg"
 image bg_ambar_light_secret = "images/searching/ambar/bg_ambar_light_secret.jpg"
@@ -203,6 +201,9 @@ screen ambar_secret_screen():
         
         # Клик вызывает попытку открыть (карандаш сломается)
         action Jump("try_open_secret_door")        
+
+
+
 
 # МЕНЮ ВЫБОРА ГЛАВы
 

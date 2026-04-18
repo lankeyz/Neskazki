@@ -18,13 +18,17 @@ label ambar_light:
 label .waiting_loop:
     window hide
     
-    # Проверка должна быть ЗДЕСЬ, в начале цикла
+    # Сначала проверяем, что все три точки осмотрены
     if ambar_box_checked and ambar_hay_checked and ambar_lamp_checked:
+        "Я осмотрел здесь всё."
         
-        jump pencil_secret
+        # Проверяем условие через ваш словарь
+        if player_choices["needs_pencil"]:
+            jump pencil_secret
+        else:
+            jump ambar_end
 
     pause
-    # Если условия не выполнены, прыгаем в начало этого же цикла
     jump .waiting_loop
 
 # Клик по ящику
@@ -35,7 +39,7 @@ label ambar_check_box:
         
     else:
         $ ambar_box_checked = True
-        "Остатки картошки на дне. Клубни сморщились и затвердели, ростки иссохшими нитями переплетались и цеплялись на щели."
+        "Остатки картошки на дне. Клубни сморщились и затвердели, ростки иссохшими нитями переплетались и цеплялись за щели."
     
     show screen ambar_search_screen
     jump ambar_light.waiting_loop
@@ -66,9 +70,7 @@ label ambar_check_lamp:
     show screen ambar_search_screen
     jump ambar_light.waiting_loop
 
-if ambar_box_checked and ambar_hay_checked and ambar_lamp_checked:
-    "Я осмотрел здесь всё. Моё внимание привлек странный зазор между досками..."
-    jump pencil_secret
+
 
 # КАРАНДАШ
 
@@ -76,7 +78,7 @@ label pencil_secret:
     hide screen ambar_search_screen
     window show
 
-    "Тревога нарастала. Я собрался уходить, когда вспомнил про карандаш."
+    "Я собрался уходить, когда вспомнил про карандаш."
     "Я начал шарить по полу, разгребая сено, и в конце концов наткнулся на него."
     
     kb "Значит, я всё-таки был здесь... Осталось понять, что я тут делал."
@@ -119,9 +121,7 @@ label try_open_secret_door:
     "В редакции есть перочинный нож, но нужно что-то помощнее. Что-то, что не погнется и не сломается."
     
     "Быть может, у Быка найдется подходящий инструмент. И он точно не будет расспрашивать."
-    "Солнце почти зашло, значит, его еще можно застать в рюмочной."
-
-    
+       
     scene black
     jump ambar_end
     
