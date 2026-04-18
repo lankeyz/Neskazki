@@ -47,6 +47,7 @@ image intrain = "images/intrain.jpg" # В купе поезда
 image home_fire = "images/location/home_fire.jpg" # Дом в огне
 
 image saray_dark = "images/location/saray_dark.jpg" # Сарай в темноте
+image in_saray = "images/location/in_saray.jpg" # Сарай внутри
 image bridge = "images/location/bridge.jpg" # Мост
 image bridge_lisa = "images/location/bridge_lisa.jpg" # Мост с лисой
 
