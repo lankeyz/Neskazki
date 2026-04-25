@@ -233,6 +233,6 @@ screen dark_overlay():
 
 transform float_text:
     yoffset 0
-    ease 1.5 yoffset -20
-    ease 1.5 yoffset 0
+    ease 1.5 yoffset -10
+    ease 1.5 yoffset -0
     repeat
