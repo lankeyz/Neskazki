@@ -33,16 +33,19 @@ define gui.name_text_font = "fonts/georgia.ttf"      # Для имен перс�
 
 
 # Определение персонажей
-define kb = Character("Кот Владимир", color="#85a39a")
-define ll = Character("Лиса Лиза", color="#c4b394")
-define ga = Character("Гусь Аркадий", color="#ffa600")
-define sf = Character("Свинья Фрося", color="#6a19ac")
-define zm = Character("Заяц Митя", color="#5a8abe")
-define vv = Character("Волк", color="#d1d1d1")
+define kb = Character("Владимир", color="#85a39a")
+define ll = Character("Лиза", color="#c4b394")
+define ga = Character("Аркадий", color="#ffa600")
+define sf = Character("Ефросинья Федоровна", color="#6a19ac")
+define zm = Character("Митя", color="#5a8abe")
+define vs = Character("«Серый»", color="#d1d1d1")
 define bb = Character("Борис", color="#ffcc99") 
-define star = Character("Бабка", color="#e0e0e0")
+define bya = Character("Бабушка", color="#e0e0e0")
+define dk = Character("Дед Костя", color="#e0e0e0")
 define mm = Character("Дядя Миша", color="#f5f5dc")
-
+define ms = Character("Сима Ильинична", color="#e0e0e0")
+define ev = Character("Егорушка", color="#e0e0e0")
+define liho = Character("Лихо", color="#e0e0e0")
 
 # Определение изображений локации
 image cattrain = "images/cattrain.jpg" # Кот в поезде

@@ -121,7 +121,8 @@ label try_open_secret_door:
     "В редакции есть перочинный нож, но нужно что-то помощнее. Что-то, что не погнется и не сломается."
     
     "Быть может, у Быка найдется подходящий инструмент. И он точно не будет расспрашивать."
-       
+    hide ambar_search_screen
+    hide scene bg_ambar_light_secret
     scene black
-    jump ambar_end
+    jump chapter_05
     

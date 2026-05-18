@@ -1,14 +1,4 @@
 
-# Выборы игрока
-
-# По умолчанию 4 глава РЕДАКЦИЯ
-default chosen_chapter_ambar_first = False
-
-
-# Текст заголовка по умолчанию
-default chapter_4_title = "РЕДАКЦИЯ"
-default chapter_5_title = "АМБАР"
-
 # КИНЖАЛ или НОЖ
 default player_weapon = "knife"
 

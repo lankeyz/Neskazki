@@ -164,4 +164,7 @@ label chapter_03:
     stop ambience fadeout 1.0 
     
 
-jump chapter_04_05_choice    
+    if chosen_chapter_ambar_04:
+        jump chapter_04_ambar
+    else:
+        jump chapter_04_editorial_office
