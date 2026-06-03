@@ -28,9 +28,18 @@ init python:
     
 # Основной шрифт
 define gui.text_font = "fonts/georgia.ttf"
-define gui.interface_text_font = "fonts/georgia.ttf" # Для кнопок и меню
-define gui.name_text_font = "fonts/georgia.ttf"      # Для имен персонажей
+define gui.interface_text_font = "fonts/georgia.ttf"
+define gui.name_text_font = "fonts/georgia.ttf"
 
+# Добавьте этот блок ниже, чтобы Ren'Py подхватывал начертания:
+init python:
+    # Связываем основной файл с его курсивной версией
+    # Параметры: (путь_к_шрифту, жирный, курсив)
+    config.font_replacement_map["fonts/georgia.ttf", False, True] = ("fonts/georgiai.ttf", False, False)
+    # Связываем основной файл с жирной версией
+    config.font_replacement_map["fonts/georgia.ttf", True, False] = ("fonts/georgiab.ttf", False, False)
+    # Связываем основной файл с жирным курсивом
+    config.font_replacement_map["fonts/georgia.ttf", True, True] = ("fonts/georgiaz.ttf", False, False)
 
 # Определение персонажей
 define kb = Character("Владимир", color="#85a39a")

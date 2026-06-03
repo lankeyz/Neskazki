@@ -207,31 +207,46 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
+
+# Указываем, что vbox теперь не центрируется по всему экрану, 
+# так как вы уже задали xalign 0.95 в самом экране
+style choice_vbox:
+    xalign 0.95 
+    yalign 0.5
+    spacing 40
+
+# Настройка самой рамки (кнопки)
+style choice_button is default:
+    properties gui.button_properties("choice_button")
+    # Используем ваши изображения (проверьте наличие файлов в папке)
+    idle_background Frame("/gui/choice_idle.png", 10, 10)
+    hover_background Frame("/gui/choice_hover.png", 10, 10)
+    
+    # Убираем лишние отступы, чтобы xsize/ysize работали корректно
+    padding (5, 5) 
+
+# Настройка текста внутри рамки
+style choice_button_text is default:
+    properties gui.button_text_properties("choice_button")
+    font "fonts/georgia.ttf"
+    color "#000"           # Черный текст как на 111.jpg
+    size 40                # Крупный шрифт
+    
+    # Эти две строки критически важны для центровки текста в фиксированной рамке:
+    xalign 0.5             
+    yalign 0.5
+    text_align 0.5         # Если текст будет в две строки, они тоже отцентруются
+    
+    # Чтобы текст не менял цвет на системный при наведении:
+    idle_color "#000"
+    hover_color "#444"
+
 screen choice(items):
     style_prefix "choice"
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
-
-
-style choice_vbox is vbox
-style choice_button is button
-style choice_button_text is button_text
-
-style choice_vbox:
-    xalign 0.5
-    ypos 405
-    yanchor 0.5
-
-    spacing gui.choice_spacing
-
-style choice_button is default:
-    properties gui.button_properties("choice_button")
-
-style choice_button_text is default:
-    properties gui.text_properties("choice_button")
-
+            textbutton i.caption action i.action    
 
 ## Экран быстрого меню #########################################################
 ##
