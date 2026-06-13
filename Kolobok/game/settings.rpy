@@ -112,6 +112,7 @@ image goose_back = "images/person/goose_back.png"
 # --- ПОГОДА (weather) ---
 define audio.w_rain = "audio/shum_dozhdya.ogg" #дождь
 define audio.w.raintrain = "audio/rainandtrain.mp3" # шум поезда, дождь
+define audio.w.train = "audio/train.mp3" # стук колес
 
 # --- ОКРУЖЕНИЕ (ambience) ---
 define audio.a_fire_voices = "audio/fire2.mp3"  # Пожар с голосами
@@ -119,6 +120,8 @@ define audio.a_fire_main = "audio/fire.ogg"    # Просто пожар
 define audio.a_magicpole = "audio/magicpole.mp3"    # Телек
 
 # --- ЭФФЕКТЫ (fx) ---
+define audio.s_prolog = "audio/prolog.ogg" # пролог
+define audio.s_golosa = "audio/golosa.mp3" # голоса
 define audio.s_grom = "audio/grom.ogg" # гром
 define audio.s_steps = "audio/footsteps.mp3" # бег в мокрой траве
 define audio.s_steps2 = "audio/footsteps2.mp3" # шаг в мокрой траве
