@@ -211,9 +211,6 @@ init python:
 # define build.itch_project = "renpytom/test-project"
 
 
-## Музыка в главном меню
-define config.main_menu_music = "audio/menu_music.ogg"
-
 # Настройка фонарика
 
 define config.layers = [ 'master', 'flashlight_layer', 'transient', 'screens', 'overlay' ]
