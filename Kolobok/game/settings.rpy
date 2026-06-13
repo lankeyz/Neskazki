@@ -60,6 +60,10 @@ define liho = Character("Лихо", color="#e0e0e0")
 image cattrain = "images/cattrain.jpg" # Кот в поезде
 image train = "images/train.jpg" # Поезд
 image intrain = "images/intrain.jpg" # В купе поезда
+image station = "images/location/station.png" # Вокзал
+image station_light = "images/location/station_light.png" # Вокзал со светом
+image station_lamp = "images/location/station_lamp.png" # Лампа вокзальная
+
 image home_fire = "images/location/home_fire.jpg" # Дом в огне
 
 image saray_dark = "images/location/saray_dark.jpg" # Сарай в темноте
@@ -86,8 +90,10 @@ image kot_scared = "images/person/kot/kot_scared.png" # Кот напуган
 image kot_confusion = "images/person/kot/kot_confusion.png" # Кот в шоке
 image kot_confusion0 = "images/person/kot/kot_confusion0.png" # Кот в шоке 2
 image kot_back = "images/person/kot/kot_back.png" # Спина кота
-image wow = "images/person/kot/wow.png" # КОТ делай выбор
-
+image kot_dark = "images/person/kot/kot_dark.png" # В темноте
+image k_choice = "images/person/kot/choice.png" # КОТ делай выбор
+image k_choice_b = "images/person/kot/choice_gloomy.png" # КОТ выбор угрюмый
+image k_choice_g = "images/person/kot/choice_pleased.png" # КОТ выбор довольный
 
 
 image lisa_based = "images/person/lisa_based.png" # Лиса нейтральна
