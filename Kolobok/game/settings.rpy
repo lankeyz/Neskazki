@@ -116,9 +116,12 @@ define audio.w.raintrain = "audio/rainandtrain.mp3" # шум поезда, до�
 define audio.w.train = "audio/train.ogg" # стук колес
 
 # --- ОКРУЖЕНИЕ (ambience) ---
+define audio.a_prolog_station = "audio/prolog station.mp3"  # на станции
+define audio.a_prolog_station_2 = "audio/prolog station 2.mp3"  # на станции
 define audio.a_fire_voices = "audio/fire2.mp3"  # Пожар с голосами
 define audio.a_fire_main = "audio/fire.ogg"    # Просто пожар
 define audio.a_magicpole = "audio/magicpole.mp3"    # Телек
+
 
 # --- ЭФФЕКТЫ (fx) ---
 define audio.s_prolog = "audio/prolog.mp3" # пролог
