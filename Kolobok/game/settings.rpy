@@ -63,6 +63,8 @@ image intrain = "images/intrain.jpg" # В купе поезда
 image station = "images/location/station.png" # Вокзал
 image station_light = "images/location/station_light.png" # Вокзал со светом
 image station_lamp = "images/location/station_lamp.png" # Лампа вокзальная
+image station_train = "images/location/station_train.png" # Поезд уходит
+
 
 image home_fire = "images/location/home_fire.jpg" # Дом в огне
 
@@ -113,7 +115,7 @@ image goose_back = "images/person/goose_back.png"
 # --- ПОГОДА (weather) ---
 define audio.w_rain = "audio/shum_dozhdya.ogg" #дождь
 define audio.w.raintrain = "audio/rainandtrain.mp3" # шум поезда, дождь
-define audio.w.train = "audio/train.ogg" # стук колес
+define audio.w_train = "audio/train.mp3" # стук колес
 
 # --- ОКРУЖЕНИЕ (ambience) ---
 define audio.a_prolog_station = "audio/prolog station.mp3"  # на станции
@@ -126,6 +128,8 @@ define audio.a_magicpole = "audio/magicpole.mp3"    # Телек
 # --- ЭФФЕКТЫ (fx) ---
 define audio.s_prolog = "audio/prolog.mp3" # пролог
 define audio.s_golosa = "audio/golosa.mp3" # голоса
+define audio.s_blackbird= "audio/creature-cry.ogg" # черноптицы пролог
+define audio.s_ravens = "audio/creepy-cry-of-ravens.ogg" # черноптицы пролог
 define audio.s_grom = "audio/grom.ogg" # гром
 define audio.s_steps = "audio/footsteps.mp3" # бег в мокрой траве
 define audio.s_steps2 = "audio/footsteps2.mp3" # шаг в мокрой траве

@@ -179,6 +179,49 @@ init python:
     ## "**.psd" берёт все файлы psd из любого места проекта.
 
     ## Классифицируйте файлы как None, чтобы исключить их из дистрибутивов.
+    
+    # Исключит любые файлы в этой папке, имя которых начинается на "chapter_"
+    build.classify('game/chapters/chapter_01.rpy', None)
+    build.classify('game/chapters/chapter_01.rpyc', None)
+    build.classify('game/chapters/chapter_02.rpy', None)
+    build.classify('game/chapters/chapter_02.rpyc', None)
+    build.classify('game/chapters/chapter_03.rpy', None)
+    build.classify('game/chapters/chapter_03.rpyc', None)
+    build.classify('game/chapters/chapter_04_ambar.rpy', None)
+    build.classify('game/chapters/chapter_04_ambar.rpyc', None)
+    build.classify('game/chapters/chapter_04_editorial_office.rpy', None)
+    build.classify('game/chapters/chapter_04_editorial_office.rpyc', None)
+    build.classify('game/chapters/chapter_05.rpy', None)
+    build.classify('game/chapters/chapter_05.rpyc', None)
+    build.classify('game/chapters/chapter_06_ambar.rpy', None)
+    build.classify('game/chapters/chapter_06_editorial_office.rpyc', None)
+    build.classify('game/chapters/chapter_07.rpy', None)
+    build.classify('game/chapters/chapter_07.rpyc', None)
+    build.classify('game/chapters/chapter_08.rpy', None)
+    build.classify('game/chapters/chapter_08.rpyc', None)
+    build.classify('game/chapters/chapter_09.rpy', None)
+    build.classify('game/chapters/chapter_09.rpyc', None)
+    build.classify('game/chapters/chapter_10.rpy', None)
+    build.classify('game/chapters/chapter_10.rpyc', None)
+    build.classify('game/chapters/chapter_11.rpy', None)
+    build.classify('game/chapters/chapter_11.rpyc', None)
+    build.classify('game/chapters/chapter_12.rpy', None)
+    build.classify('game/chapters/chapter_12.rpyc', None)
+    build.classify('game/chapters/chapter_13.rpy', None)
+    build.classify('game/chapters/chapter_13.rpyc', None)
+    build.classify('game/chapters/chapter_14.rpy', None)
+    build.classify('game/chapters/chapter_14.rpyc', None)
+    build.classify('game/chapters/chapter_15_THE END.rpy', None)
+    build.classify('game/chapters/chapter_15_THE END.rpyc', None)
+
+    build.classify('game/chapters/x_ambar_searching.rpy', None)
+    build.classify('game/chapters/x_ambar_searching.rpyc', None)
+    build.classify('game/chapters/x_editorial_office_searching.rpy', None)
+    build.classify('game/chapters/x_editorial_office_searching.rpyc', None)
+    build.classify('game/chapters/x_masterskaya_searching.rpy', None)
+    build.classify('game/chapters/x_masterskaya_searching.rpyc', None)
+  
+
 
     build.classify('**~', None)
     build.classify('**.bak', None)
@@ -208,7 +251,7 @@ init python:
 ## Имя пользователя и название проекта, ассоциированные с проектом на itch.io,
 ## разделённые дробью.
 
-# define build.itch_project = "renpytom/test-project"
+define build.itch_project = "lunamaxima/Neskazki"
 
 
 # Настройка фонарика

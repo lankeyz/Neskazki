@@ -203,7 +203,19 @@ screen ambar_secret_screen():
         action Jump("try_open_secret_door")        
 
 
+label splashscreen:
 
+    call screen language_select
+
+    scene black
+
+    show text _("Luna Maxima представляет...") with dissolve
+
+    ""
+
+    hide text with dissolve
+
+    return
 
 # МЕНЮ ВЫБОРА ГЛАВы
 
@@ -215,7 +227,7 @@ screen chapter_selection():
         align (0.5, 0.4)
         spacing 40
 
-        text "ВЫБОР ГЛАВЫ" xalign 0.5 size 60 color "#fff" 
+        text _("ВЫБОР ГЛАВЫ") xalign 0.5 size 60 color "#fff" 
 
         # Основной контейнер для двух колонок
         hbox:
@@ -225,23 +237,23 @@ screen chapter_selection():
             # ЛЕВАЯ КОЛОНКА
             vbox:
                 spacing 20 # Расстояние между кнопками по вертикали
-                textbutton "Пролог" action Jump("chapter_prolog") style "ch_button"
-                textbutton "Глава 1: ВСТРЕЧА" action Jump("chapter_01") style "ch_button"
-                textbutton "Глава 2: ПОЖАР" action Jump("chapter_02") style "ch_button"
-                textbutton "Глава 3: ФРОСЯ" action Jump("chapter_03") style "ch_button"
-                textbutton "Глава 4-5" action Jump("chapter_04_05_choice") style "ch_button"
-                textbutton "Глава 6" action Jump("chapter_06") style "ch_button"
+                textbutton _("Пролог") action Jump("chapter_prolog") style "ch_button"
+                #textbutton "Глава 1: ВСТРЕЧА" action Jump("chapter_01") style "ch_button"
+                #textbutton "Глава 2: ПОЖАР" action Jump("chapter_02") style "ch_button"
+                #textbutton "Глава 3: ФРОСЯ" action Jump("chapter_03") style "ch_button"
+                #textbutton "Глава 4-5" action Jump("chapter_04_05_choice") style "ch_button"
+                #textbutton "Глава 6" action Jump("chapter_06") style "ch_button"
 
             # ПРАВАЯ КОЛОНКА
             vbox:
                 spacing 20
-                textbutton "Глава 7" action Jump("chapter_07") style "ch_button"
-                textbutton "Глава 9" action Jump("chapter_09") style "ch_button"
-                textbutton "Глава 10" action Jump("chapter_10") style "ch_button"
-                textbutton "Глава Ambar 1" action Jump("chapter_ambar_first") style "ch_button"
-                textbutton "Глава Ambar 2" action Jump("chapter_ambar_second") style "ch_button"
-                textbutton "Редакция" action Jump("chapter_editorial_office") style "ch_button"
-                textbutton "TEST" action Jump("prolog_test") style "ch_button"
+                #textbutton "Глава 7" action Jump("chapter_07") style "ch_button"
+                #textbutton "Глава 9" action Jump("chapter_09") style "ch_button"
+                #textbutton "Глава 10" action Jump("chapter_10") style "ch_button"
+                #textbutton "Глава Ambar 1" action Jump("chapter_ambar_first") style "ch_button"
+                #textbutton "Глава Ambar 2" action Jump("chapter_ambar_second") style "ch_button"
+                #textbutton "Редакция" action Jump("chapter_editorial_office") style "ch_button"
+                #textbutton "TEST" action Jump("prolog_test") style "ch_button"
 
 # Стили оставляем те же, они отлично работают
 style ch_button:
@@ -260,4 +272,18 @@ style ch_button_text:
     yalign 0.5
 
 
+screen language_select():
+
+    modal True
+
+    frame:
+        align (0.5, 0.5)
+
+        vbox:
+            spacing 20
+
+            text "Select Language / Выберите язык" xalign 0.5
+
+            textbutton "Русский" action [Language(None), Return()] style "ch_button"
+            textbutton "English AI" action [Language("english"), Return()] style "ch_button"
 
