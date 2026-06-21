@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Инициализация
 ################################################################################
 
@@ -832,8 +832,8 @@ screen preferences():
 
             textbutton "Русский" action Language(None)
 
-            textbutton "English AI" action Language("english")
-            text " (AI version)"
+            textbutton "English" action Language("english")
+            
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
