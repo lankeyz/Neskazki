@@ -57,17 +57,17 @@ define ev = Character("Егорушка", color="#e0e0e0")
 define liho = Character("Лихо", color="#e0e0e0")
 
 # Определение изображений локации
-image cattrain = "images/cattrain.jpg" # Кот в поезде
-image train = "images/train.jpg" # Поезд
-image intrain = "images/intrain.jpg" # В купе поезда
-image station = "images/location/station.png" # Вокзал
-image station_light = "images/location/station_light.png" # Вокзал со светом
-image station_lamp = "images/location/station_lamp.png" # Лампа вокзальная
-image station_train = "images/location/station_train.png" # Поезд уходит
+# Для пролога
+image cattrain = "images/location/station/cattrain.jpg" # Кот в поезде
+image train = "images/location/station/train.jpg" # Поезд
+image station = "images/location/station/station.png" # Вокзал в темноте
+image station_light = "images/location/station/station_light.png" # Вокзал со светом
+image station_lamp = "images/location/station/station_lamp.png" # Лампа вокзальная
+image station_train = "images/location/station/station_train.png" # Поезд уходит с вокзала
 
+image birds_circling = "images/location/birds_circling.png" # Птицы кружат
 
 image home_fire = "images/location/home_fire.jpg" # Дом в огне
-
 image saray_dark = "images/location/saray_dark.jpg" # Сарай в темноте
 image in_saray = "images/location/in_saray.jpg" # Сарай внутри
 image bridge = "images/location/bridge.jpg" # Мост
